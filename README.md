@@ -17,7 +17,7 @@
 Follow the steps in the defined order to avoid conflicts.
 
 1. Create an environment (**note: the python version must be == 3.7, 3.8**):
-```
+```bash
 conda create --name myenv python=3.7
 conda activate myenv
 ```
@@ -25,13 +25,13 @@ conda activate myenv
 or use an existing environment with python >= 3.7
 
 2. Install rdkit 2020.03 (if already installed skip this step)
-```
+```bash
 conda install -c rdkit rdkit -y
 ```
 
 3. Install RAscore 
-```
-pip install git+https://github.com/reymond-group/RAscore.git@master
+```bash
+pip install git+https://github.com/mathcom/RAscore.git@master
 ```
 The models.zip file will have to be downloaded and after unzipping the path to the relevant model will need to be specified on model instantiation.
 
@@ -39,7 +39,7 @@ or
 
 Clone and install the repository using (models should be included):
 ```
-git clone https://github.com/reymond-group/RAscore.git
+git clone https://github.com/mathcom/RAscore.git
 pip install --editable .
 ```
 If the models are not automatically included check that the models.zip file exists and unzip it into the desired location.
@@ -49,7 +49,7 @@ If the models are not automatically included check that the models.zip file exis
 * python == 3.7
 * scikit-learn == 0.22.1
 * xgboost == 1.0.2
-* tensorflow-gpu == 2.5.0
+* tensorflow-cpu == 2.5.0
 
 These requirements arise becuase of the pickling method used to save the model and compatibility issues arising between different versions.
 
@@ -59,7 +59,7 @@ Depending on if you would like to use the XGB based or Tensorflow based models y
 
 To walk through the example in a jupyter notebook refer to `rascore_usage.ipynb`
 
-```
+```python
 from RAscore import RAscore_NN #For tensorflow and keras based models
 from RAscore import RAscore_XGB #For XGB based models
 
@@ -93,7 +93,7 @@ xgb_scorer.predict(morphine)
 
 ### Command Line Interface
 A command line interface is provided which allows batch processing and enables the flexibility of specifying models.\
-```
+```bash
 Usage: RAscore [OPTIONS]
 
 Example: A set of smiles `test.smi` are provided
@@ -149,6 +149,18 @@ Please refer to the `model_building` folder for further information about retrai
 
 ## Citation
 The models have been published in Chemical Science
-
-Thakkar, A.; Chadimová, V.; Bjerrum, E. J.; Engkvist, O.; Reymond, J.-L. Retrosynthetic Accessibility Score (RAscore) – Rapid Machine Learned Synthesizability Classification from AI Driven Retrosynthetic Planning. Chem. Sci. 2021. https://doi.org/10.1039/d0sc05401a
+```
+@Article{D0SC05401A,
+	author ="Thakkar, Amol and Chadimová, Veronika and Bjerrum, Esben Jannik and Engkvist, Ola and Reymond, Jean-Louis",
+	title  ="Retrosynthetic accessibility score (RAscore) – rapid machine learned synthesizability classification from AI driven retrosynthetic planning",
+	journal  ="Chem. Sci.",
+	year  ="2021",
+	volume  ="12",
+	issue  ="9",
+	pages  ="3339-3349",
+	publisher  ="The Royal Society of Chemistry",
+	doi  ="10.1039/D0SC05401A",
+	url  ="http://dx.doi.org/10.1039/D0SC05401A",
+}
+```
 
