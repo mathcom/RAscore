@@ -29,7 +29,8 @@ class RAScorerNN:
         :param model_path: path to the neural network model (.h5) file
         """
         HERE = os.path.abspath(os.path.dirname(__file__))
-        MODEL = os.path.join(HERE, "models/DNN_chembl_fcfp_counts/model.tf")
+        #MODEL = os.path.join(HERE, "models/DNN_chembl_fcfp_counts/model.tf")
+        MODEL = os.path.join(HERE, "models/DNN_chembl_fcfp_counts/keras_model.h5")
         if model_path == None:
             self.nn_model = keras.models.load_model(MODEL)
         else:
